@@ -18,6 +18,8 @@ func main() {
 
 	uid := flag.String("u", "", "UID to set claim for")
 	set := flag.Bool("s", false, "Set claim for UID")
+
+	// TODO: use env var for project id
 	projectId := flag.String("p", "", "Firebase project ID")
 	userLevel := flag.String("l", "user", "User level to set (e.g. owner, paying, admin, user)")
 	help := flag.Bool("h", false, "Show help")
@@ -29,6 +31,7 @@ func main() {
 		return
 	}
 
+	// TODO: move all of this to init() function
 	ctx := context.Background()
 	app, err := firebase.NewApp(ctx, &firebase.Config{ProjectID: *projectId})
 
